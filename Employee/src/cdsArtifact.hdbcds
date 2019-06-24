@@ -1,0 +1,23 @@
+namespace FirstFullStackApp.Employee;
+
+context cdsArtifact {
+
+    /*@@layout{"layoutInfo":{"x":32,"y":121.5}}*/
+    entity employeeDetails {
+        key EMPLOYEE_ID   : String(10) not null;
+            DESCRIPTION   : String(50) not null;
+            DEPARTMENT    : String(20);
+            EMPLOYEE_NAME : String(50) not null;
+            association   : association[1, 1..*] to cdsArtifact.roleEnrollments { EMPLOYEE_ID };
+    };
+
+    /*@@layout{"layoutInfo":{"x":-444,"y":105.5}}*/
+    entity roleEnrollments {
+        key EMPLOYEE_ID   : String(20) not null;
+        key ROLE_ID       : String(20) not null;
+            ROLE_NAME     : String(20) not null;
+            EMPLOYEE_NAME : String(50) not null;
+            EMAIL         : String(40) not null;
+            LOCATION      : String(20);
+    };
+};

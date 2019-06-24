@@ -1,0 +1,9 @@
+service  
+{
+
+"FirstFullStackApp.Employee::cdsArtifact.employeeDetails" as "employeeDetails" navigates ("role_Enrollments" as "roleEnrollments");
+"FirstFullStackApp.Employee::cdsArtifact.roleEnrollments" as "roleEnrollments" ;
+association "role_Enrollments" principal "employeeDetails"("EMPLOYEE_ID") 
+multiplicity "1" dependent "roleEnrollments"("EMPLOYEE_ID") multiplicity "*";
+
+}

@@ -1,0 +1,50 @@
+ID: FirstFullStackApp
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: Employee
+    type: hdb
+    path: Employee
+    requires:
+      - name: hdi_Employee
+  - name: odatajs
+    type: nodejs
+    path: odatajs/
+    provides:
+      - name: odatajs_api
+        properties:
+          url: '${default-url}'
+          name: odatajs_api
+    requires:
+      - name: hdi_Employee
+      - name: Employee
+  - name: ui
+    type: html5
+    path: ui
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    build-parameters:
+      builder: grunt
+    requires:
+      - name: odatajs_api
+        group: destinations
+        properties:
+          name: odatajs_api
+          url: '~{url}'
+resources:
+  - name: hdi_Employee
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: uaa_FirstFullStackApp
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: dest_FirstFullStackApp
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service

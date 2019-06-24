@@ -1,0 +1,8 @@
+service  
+{
+
+"FirstFullStackApp.Employee::f.world" as "world";
+"FirstFullStackApp.Employee::f.country" as "country";
+association "World_Country" with referential constraint principal "country"("continent") multiplicity "*" dependent "world"("continent") multiplicity "1";
+
+}

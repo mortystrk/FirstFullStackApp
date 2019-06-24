@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>ui</title>
+		<script id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-resourceroots='{"testapp.ui": "./"}'
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+			data-sap-ui-async="true"
+			data-sap-ui-frameOptions="trusted">
+		</script>
+		
+		<script src ="./Util.js" ></script>
+		
+		<script>
+			var oModel = new sap.ui.model.odata.OdataModel("/servicef.xsodata", true);
+			var oTable = new sap.ui.table.Table({
+				title: "Countries", visibleRowCount: 5, id: "tinytab",
+				toolbar: new sap.ui.commons.Toolbar({items: [
+					new sap.ui.commons.Button({text: "Add Country", press: openDialog})
+					]}
+				)});
+				Otable.addColumn(new sap.ui.table.Column({label: "Country Name", template: "name"}));
+				oTable.setModel(oModel); 
+				oTable.bindRows("/country");
+				oTable.placeAt("container");
+		</script>
+				
+	</head>
+	<body class="sapUiBody">
+		<div data-sap-ui-component data-name="testapp.ui" data-id="container" data-settings='{"id" : "ui"}'></div>
+	</body>
+</html>

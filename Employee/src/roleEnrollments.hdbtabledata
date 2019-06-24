@@ -1,0 +1,33 @@
+{
+
+	"format_version": 1,
+
+	"imports":
+
+		[{
+
+			"target_table": "FirstFullStackApp.Employee::cdsArtifact.roleEnrollments",
+
+			"source_data": {
+				"data_type": "CSV",
+				"file_name": "FirstFullStackApp.Employee::roleEnrollments.csv",
+				"has_header": false
+			},
+
+			"import_settings": {
+				"import_columns": ["EMPLOYEE_ID", "ROLE_ID", "ROLE_NAME", "EMPLOYEE_NAME", "EMAIL"]
+			},
+
+			"column_mappings": {
+				"EMPLOYEE_ID": 1,
+				"ROLE_ID": 2,
+				"ROLE_NAME": 3,
+				"EMPLOYEE_NAME": 4,
+				"EMAIL": 5
+			}
+
+		}
+
+	]
+
+}

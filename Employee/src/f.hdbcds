@@ -1,0 +1,14 @@
+namespace FirstFullStackApp.Employee;
+
+context f {
+    /*@@layout{"layoutInfo":{"x":32,"y":121.5}}*/
+    entity world {
+        key continent : String(50);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-444,"y":105.5}}*/
+    entity country {
+        key name      : String(100);
+        key continent : String(50);
+    };
+};

@@ -1,0 +1,31 @@
+{
+
+	"format_version": 1,
+
+	"imports":
+
+		[{
+
+			"target_table": "FirstFullStackApp.Employee::cdsArtifact.employeeDetails",
+
+			"source_data": {
+				"data_type": "CSV",
+				"file_name": "FirstFullStackApp.Employee::employeeDetails.csv",
+				"has_header": false
+			},
+
+			"import_settings": {
+				"import_columns": ["EMPLOYEE_ID", "DESCRIPTION", "EMPLOYEE_NAME"]
+			},
+
+			"column_mappings": {
+				"EMPLOYEE_ID": 1,
+				"DESCRIPTION": 2,
+				"EMPLOYEE_NAME": 3
+			}
+
+		}
+
+	]
+
+}

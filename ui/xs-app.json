@@ -1,0 +1,12 @@
+{
+	"welcomeFile": "/ui/index.html",
+	"authenticationMethod": "none",
+
+	"routes": [{
+		"source": "(.*)(.xsodata)",
+		"destination": "odatajs_api"
+	}, {
+         "source": "(.*)(.xsjs)",
+         "destination": "odatajs_api"
+     }]
+}
